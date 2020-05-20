@@ -5,7 +5,7 @@
 ## Overview
 Frontend for the "News-explorer" project, implemented in flex layout, JavaScript functionality.
 
-The project is available at the link [API.Backa.ru](https://api.backa.ru)
+The project is available at the link [https://i-potashov.github.io/news-explorer-frontend/](https://i-potashov.github.io/news-explorer-frontend/)
 
 **Implemented:**
 * Adaptive layout for any device screens.
