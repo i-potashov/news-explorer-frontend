@@ -1,0 +1,31 @@
+@import url(_hide/header__link_hide.css);
+
+.header__link {
+    display: block;
+    font-size: 18px;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .header__link {
+        padding: 23px 0;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .header__link {
+        padding: 29px 0;
+        font-size: 18px;
+    }
+}
+

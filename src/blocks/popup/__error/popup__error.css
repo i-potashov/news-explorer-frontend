@@ -1,0 +1,16 @@
+@import url(_data/_email/popup__error_data_email.css);
+@import url(_data/_name/popup__error_data_name.css);
+@import url(_data/_password/popup__error_data_password.css);
+@import url(_data/_sign-up/popup__error_data_sign-up.css);
+@import url(_invalid/popup__error_invalid.css);
+
+.popup__error {
+    font-size: 12px;
+    color: #FF0000;
+    min-height: 13px;
+    margin-bottom: 12px;
+}
+
+.popup__error:last-of-type {
+  margin-bottom: 8px;
+}

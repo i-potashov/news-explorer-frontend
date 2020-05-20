@@ -1,0 +1,35 @@
+.articles__text {
+    color: #1A1B22;
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    align-self: flex-start;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .articles__text {
+        color: #1A1B22;
+        line-height: 1.33;
+        margin-bottom: 18px;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+.popup__bottom {
+    display: flex;
+    align-self: center;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .popup__bottom {
+        margin-bottom: 28px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+
+}
+

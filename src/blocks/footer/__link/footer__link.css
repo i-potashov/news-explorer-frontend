@@ -1,0 +1,26 @@
+@import url(./_icon/footer__link_icon.css);
+
+.footer__link {
+    text-decoration: none;
+    color: #1A1B22;
+    font-size: 18px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+

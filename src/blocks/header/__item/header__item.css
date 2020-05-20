@@ -1,0 +1,40 @@
+@import url(_active/header__item_active.css);
+@import url(_button/header__item_button.css);
+
+
+.header__item {
+    position: relative;
+    line-height: 3.1;
+    width: 100%;
+    font-weight: 500;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .header__item {
+        margin-right: 18px;
+        width: auto;
+        line-height: normal;
+    }
+
+    .header__item:last-child {
+        margin-right: 0;
+        width: auto;
+        line-height: normal;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .header__item {
+        margin-right: 32px;
+    }
+}
+
+

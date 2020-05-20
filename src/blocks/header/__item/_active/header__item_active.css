@@ -1,0 +1,39 @@
+@import url(_dark/header__item_active_dark.css);
+@import url(_light/header__item_active_light.css);
+
+.header__item_active {
+
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .header__item_active:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .header__item_active {
+
+    }
+
+    .header__item_active:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+    }
+}
+

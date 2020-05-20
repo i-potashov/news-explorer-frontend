@@ -1,0 +1,8 @@
+.page__link_animation {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}
+
+.page__link_animation:hover {
+    opacity: 0.6;
+}

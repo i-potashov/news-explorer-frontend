@@ -1,0 +1,51 @@
+@import url(_type/_email/popup__input_type_email.css);
+@import url(_type/_password/popup__input_type_password.css);
+@import url(_type/_name/popup__input_type_name.css);
+
+.popup__input {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #B6BCBF;
+  font-size: 14px;
+  line-height: 17px;
+  box-sizing: border-box;
+  padding: 10px 0 5px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+/*.popup__input:last-of-type {*/
+/*  margin-bottom: 0;*/
+/*}*/
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+  /*.popup__input:last-of-type {*/
+  /*  margin-bottom: 0;*/
+  /*}*/
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+

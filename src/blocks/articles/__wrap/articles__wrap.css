@@ -1,0 +1,41 @@
+.articles__wrap {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 16px 16px 0;
+    background: #FFFFFF;
+    z-index: 3;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    height: 100%;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .articles__wrap {
+        display: flex;
+        box-sizing: border-box;
+        padding: 20px 24px 0;
+        background: #FFFFFF;
+        z-index: 3;
+        border-bottom-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        height: 100%;
+    }
+}
+
+
+
+
+

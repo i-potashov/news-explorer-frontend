@@ -1,0 +1,30 @@
+.user__container {
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: 64px 16px 0;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .user__container {
+        padding: 80px 40px 0;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .user__container {
+        max-width: 1440px;
+        padding: 120px 104px 0;
+    }
+}

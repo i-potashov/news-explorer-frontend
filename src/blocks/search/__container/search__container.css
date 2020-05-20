@@ -1,0 +1,36 @@
+.search__container {
+    box-sizing: border-box;
+    background: url("../../../images/background-320.jpg") no-repeat center;
+    background-size: cover;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    padding: 86px 16px 0;
+    align-items: flex-start;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .search__container {
+        padding-top: 104px;
+        background: url("../../../images/background-768.jpg") no-repeat top;
+        background-size: cover;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .search__container {
+        max-width: 1440px;
+        padding-top: 160px;
+        background: url("../../../images/background.jpg") no-repeat center;
+
+    }
+}

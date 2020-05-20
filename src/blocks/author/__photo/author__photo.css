@@ -1,0 +1,35 @@
+.author__photo {
+    border-radius: 100%;
+    width: calc(100% - 24px);
+    margin-bottom: 34px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .author__photo {
+        width: 100%;
+        max-width: 232px;
+        margin-right: 32px;
+        align-self: center;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .author__photo {
+        border-radius: 100%;
+        max-width: 464px;
+        margin-right: 56px;
+        width: 100%;
+    }
+}
+
+
+

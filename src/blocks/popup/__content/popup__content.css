@@ -1,0 +1,38 @@
+@import url('_data/popup__content_data.css');
+
+  .popup__content {
+    width: 100%;
+    color: #000000;
+    position: relative;
+  }
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+  .popup__content {
+    max-width: 430px;
+    align-self: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .popup__content {
+    position: relative;
+    box-sizing: border-box;
+  }
+}
+
+
+
+
+
+
+
+
+

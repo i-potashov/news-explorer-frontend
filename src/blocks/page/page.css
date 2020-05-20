@@ -1,0 +1,44 @@
+@import url(./__link/page__link.css);
+@import url(./__link/_animation/page__link_animation.css);
+
+h1, h2, h3, h4, h5, h6, a, p, ul, blockquote, figure, figcaption {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+button:focus {
+     outline: none;
+     box-shadow: 0 0 0 2px #1E90FF;
+ }
+
+input:focus {
+    outline-color: #1E90FF;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .page {
+        font-family: Inter, Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+    }
+}
+
+

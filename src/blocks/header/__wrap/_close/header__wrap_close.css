@@ -1,0 +1,23 @@
+.header__wrap_close {
+    top: -900px;
+    transition: top 1s ease;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .header__wrap_close {
+        top: 0;
+        transition: none;
+    }
+}

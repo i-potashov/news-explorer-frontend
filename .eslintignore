@@ -1,0 +1,7 @@
+public
+dist
+.idea
+images
+node_modules
+postcss.config.js
+webpack.config.js

@@ -1,0 +1,27 @@
+.header__item_active_dark {
+
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .header__item_active_dark:before {
+        background-color: #000000;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .header__item_active_dark {
+
+    }
+
+    .header__item_active_dark:before {
+        background-color: #000000;
+    }
+}

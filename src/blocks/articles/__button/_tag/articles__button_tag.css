@@ -1,0 +1,33 @@
+.articles__button_tag {
+    color: #000000;
+    border-radius: 10px;
+    font-size: 10px;
+    margin-bottom: 0;
+    padding: 15px 13px 15px;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-right: auto;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .articles__button_tag {
+        display: none;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .articles__button_tag {
+        display: block;
+        font-size: 14px;
+        padding: 13px 13px 13px;
+    }
+}
+

@@ -1,0 +1,31 @@
+.user__message {
+    font-family: Roboto Slab,Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #1A1B22;
+    margin-bottom: 16px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .user__message {
+        font-size: 40px;
+        margin-bottom: 30px;
+        max-width: 530px;
+        line-height: 1.1;
+    }
+}
+

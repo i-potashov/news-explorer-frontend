@@ -1,0 +1,61 @@
+.popup__close_icon {
+
+}
+
+
+.popup__close_icon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 66%;
+    background: #FFFFFF;
+    opacity: 1;
+    left: 17%;
+    transition: .25s ease-in-out;
+    top: 11px;
+    transform: rotate(135deg);
+}
+
+.popup__close_icon:after {
+    top: 11px;
+    transform: rotate(-135deg);
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 66%;
+    background: #FFFFFF;
+    opacity: 1;
+    left: 17%;
+    bottom: 8px;
+    transition: .25s ease-in-out;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .popup__close_icon {
+
+    }
+
+
+    .popup__close_icon:before {
+        height: 3px;
+
+    }
+
+    .popup__close_icon:after {
+        height: 3px;
+    }
+}

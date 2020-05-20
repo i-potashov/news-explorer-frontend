@@ -1,0 +1,47 @@
+@import url(./_sign-in/button__popup_sign-in.css);
+@import url(./_sign-up/button__popup_sign-up.css);
+
+.button__popup {
+    align-self: center;
+    color: #FFFFFF;
+    background-color: #2F71E5;
+    border: none;
+    z-index: 2;
+    font-size: 18px;
+    min-height: 56px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.button__popup:hover {
+    background-color: #347EFF;
+}
+
+.button__popup:active {
+    background-color: #2A65CC;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .button__popup {
+        max-width: none;
+        min-height: 64px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .button__popup {
+        /*border-radius: 100px;*/
+        /*height: 64px;*/
+        /*padding: 0 54px;*/
+        /*max-width: 168px;*/
+        /*z-index: 2;*/
+    }
+}

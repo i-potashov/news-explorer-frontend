@@ -1,0 +1,40 @@
+.search__input {
+    padding: 17px 0 17px 16px;
+    background: none;
+    z-index: 2;
+    font-size: 16px;
+    margin-bottom: 16px;
+    background: #FFFFFF;
+    border: 1px solid #D1D2D6;
+    border-radius: 100px;
+    color: #B6BCBF;
+
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .search__input {
+        padding: 19px 0 19px 24px;
+        background: none;
+        border: none;
+        margin-bottom: 0;
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .search__input {
+        padding: 21px 0 21px 24px;
+    }
+
+
+}
+

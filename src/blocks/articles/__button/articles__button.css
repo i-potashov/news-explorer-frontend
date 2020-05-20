@@ -1,0 +1,18 @@
+@import url(_bookmark/articles__button_bookmark.css);
+@import url(_bookmark/_marked/articles__button_bookmark_marked.css);
+@import url(./_active/articles__button_active.css);
+@import url(./_reg/articles__button_reg.css);
+@import url(./_load/articles__button_load.css);
+@import url(./_tag/articles__button_tag.css);
+@import url(./_delete/articles__button_delete.css);
+@import url(./_unsave/articles__button_unsave.css);
+
+.articles__button, .articles__button:hover{
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
