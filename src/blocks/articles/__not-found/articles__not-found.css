@@ -1,0 +1,8 @@
+@import url(./_open/articles__not-found_open.css);
+
+.articles__not-found {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}

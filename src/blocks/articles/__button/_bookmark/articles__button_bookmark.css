@@ -1,0 +1,46 @@
+.articles__button_bookmark {
+    background-image: url(../../../../images/bookmark.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    margin-right: 0;
+    align-self: flex-start;
+    transition: background-image 0.4s linear;
+
+}
+
+.articles__button_bookmark:hover {
+    background-image: url(../../../../images/bookmark-hover.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.4s linear;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .articles__button_bookmark {
+        margin-bottom: 0;
+        margin-right: 5px;
+        align-self: flex-start;
+
+    }
+
+    .articles__button_bookmark:hover {
+
+    }
+}
+

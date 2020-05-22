@@ -1,0 +1,29 @@
+.footer__nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .footer__nav {
+        flex-direction: row;
+        margin-right: 35px;
+        align-self: center;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .footer__nav {
+        margin-right: 60px;
+    }
+}
+
+

@@ -1,0 +1,31 @@
+.articles__button_load {
+    font-size: 18px;
+    border-radius: 80px;
+    color: #1A1B22;
+    margin: 0 auto 32px;
+    padding: 20px 84px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .articles__button_load {
+        margin: 0 auto 40px;
+        padding: 15px 60px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .articles__button_load {
+        margin: 0 auto 80px;
+        padding: 20px 84px;
+    }
+}
+
+

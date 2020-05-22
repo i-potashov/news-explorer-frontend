@@ -1,0 +1,7 @@
+.articles__button_bookmark_marked {
+    background-image: url(../../../../../images/bookmark-marked.svg);
+}
+
+.articles__button_bookmark_marked:hover {
+    background-image: url(../../../../../images/bookmark-marked.svg);
+}

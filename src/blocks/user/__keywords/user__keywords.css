@@ -1,0 +1,33 @@
+@import url(./_text/user__keywords_text.css);
+@import url(./_list/user__keywords_list.css);
+
+.user__keywords {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #1A1B22;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .user__keywords {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .user__keywords {
+        font-size: 18px;
+        margin-bottom: 56px;
+    }
+}
+
+
+

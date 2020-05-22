@@ -1,0 +1,26 @@
+.header__item_button {
+    padding-top: 23px;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+    .header__item_button {
+        display: block;
+        padding: 0;
+        align-self: center;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+

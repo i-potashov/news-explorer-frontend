@@ -1,0 +1,26 @@
+.author__wrap {
+    align-self: flex-start;
+    margin-bottom: 60px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .author__wrap {
+        align-self: flex-start;
+        padding-top: 51px;
+    }
+}
+
+
+

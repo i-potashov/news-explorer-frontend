@@ -1,0 +1,31 @@
+.button__menu_dark {
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.button__menu_dark:after{
+    background: url("../../../../images/logout-light.svg") no-repeat center;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .button__menu_dark {
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
+    .button__menu_dark:after{
+        background: url("../../../../images/logout-dark.svg") no-repeat center;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+
+}

@@ -1,0 +1,33 @@
+@import url(_light/header__logo_light.css);
+@import url(_dark/header__logo_dark.css);
+
+.header__logo {
+    font-size: 16px;
+    font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: inherit;
+    align-self: center;
+    color: inherit;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .header__logo {
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .header__logo {
+
+    }
+}

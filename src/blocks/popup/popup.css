@@ -1,0 +1,37 @@
+@import url(__content/popup__content.css);
+@import url(__close/popup__close.css);
+@import url(__title/popup__title.css);
+@import url(__form/popup__form.css);
+@import url(__input/popup__input.css);
+@import url(__error/popup__error.css);
+@import url(__subtitle/popup__subtitle.css);
+@import url(__link/popup__link.css);
+@import url(__text/popup__text.css);
+@import url(__container/popup__container.css);
+@import url(__wrap/popup__wrap.css);
+@import url(__bottom/popup__bottom.css);
+
+
+.popup {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .popup {
+
+  }
+}

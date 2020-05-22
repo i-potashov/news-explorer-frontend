@@ -1,0 +1,24 @@
+@import url(__container/articles__container.css);
+@import url(__title/articles__title.css);
+@import url(__cards/articles__cards.css);
+@import url(__button/articles__button.css);
+@import url(__card/articles__card.css);
+@import url(__wrap/articles__wrap.css);
+@import url(__date/articles__date.css);
+@import url(__card-title/articles__card-title.css);
+@import url(__text/articles__text.css);
+@import url(__link/articles__link.css);
+@import url(__image/articles__image.css);
+@import url(__not-found/articles__not-found.css);
+@import url(__loader/articles__loader.css);
+@import url(__loader-spinner/articles__loader-spinner.css);
+@import url(__loader-text/articles__loader-text.css);
+@import url(__subtitle/articles__subtitle.css);
+@import url(__not-image/articles__not-image.css);
+@import url(__card-link/articles__card-link.css);
+
+.articles {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}

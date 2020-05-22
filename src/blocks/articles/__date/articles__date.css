@@ -1,0 +1,9 @@
+.articles__date {
+    font-size: 18px;
+    font-family: Source Sans Pro, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #B6BCBF;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}

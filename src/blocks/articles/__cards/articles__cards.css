@@ -1,0 +1,40 @@
+.articles__cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0 0 16px 0;
+    align-content: center;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+    .articles__cards {
+        flex-direction: row;
+        flex:3;
+        margin: 0 0 32px 0;
+        justify-content: flex-start;
+    }
+
+    .articles__cards .articles__card:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .articles__cards {
+        flex-direction: row;
+        margin: 0 0 64px 0;
+    }
+}
+

@@ -1,0 +1,26 @@
+.header__wrap_open {
+    top: 0;
+    transition: top 0.5s ease;
+    transition-delay: 0.2s;
+    background: #000000;
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .header__wrap_open {
+        top: 0;
+        transition: none;
+        transition-delay: 0s;
+    }
+}

@@ -1,0 +1,11 @@
+.header__mobile-button_light {
+
+}
+
+.header__mobile-button_light:before {
+    background: #FFFFFF;
+}
+
+.header__mobile-button_light:after {
+    background: #FFFFFF;
+}

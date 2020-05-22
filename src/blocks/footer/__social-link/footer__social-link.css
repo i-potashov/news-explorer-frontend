@@ -1,0 +1,26 @@
+.footer__social-link {
+    margin-right: 27px;
+}
+
+.footer__social-link:last-child {
+    margin-right: 0;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+

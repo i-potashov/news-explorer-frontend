@@ -1,0 +1,11 @@
+.header__mobile-button_dark {
+
+}
+
+.header__mobile-button_dark:before {
+    background: #1A1B22;
+}
+
+.header__mobile-button_dark:after {
+    background: #1A1B22;
+}

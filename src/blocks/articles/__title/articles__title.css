@@ -1,0 +1,30 @@
+.articles__title {
+    align-self: start;
+    margin-bottom: 24px;
+    font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .articles__title {
+        margin-bottom: 32px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .articles__title {
+        margin-bottom: 64px;
+        font-size: 40px;
+    }
+}
+

@@ -1,0 +1,41 @@
+@import url(./_search/button__content_search.css);
+@import url(./_load/button__content_load.css);
+
+.button__content {
+    font-size: 18px;
+    min-height: 56px;
+    width: 100%;
+
+    /*font-family: Roboto, Arial, Helvetica, sans-serif;*/
+    /*font-style: normal;*/
+    /*font-weight: 500;*/
+    /*cursor: pointer;*/
+    /*font-size: 18px;*/
+    /*min-height: 56px;*/
+    /*width: 100%;*/
+    /*max-width: 300px;*/
+    /*box-sizing: border-box;*/
+    /*border-radius: 100px;*/
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .button__content {
+        /*min-height: 56px;*/
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .button__content {
+        /*display: block;*/
+    }
+}
+
+

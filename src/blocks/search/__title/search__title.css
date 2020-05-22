@@ -1,0 +1,34 @@
+.search__title {
+    font-size: 36px;
+    font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    max-width: 608px;
+    margin-bottom: 16px;
+    margin-left: 4px;
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+    .search__title {
+        max-width: 385px;
+        line-height: 1.12;
+        margin-left: 5px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+
+}
+
+@media only screen and (min-width : 1200px) {
+    .search__title {
+        font-size: 60px;
+        max-width: 608px;
+        line-height: 1.1;
+        margin-bottom: 32px;
+    }
+}

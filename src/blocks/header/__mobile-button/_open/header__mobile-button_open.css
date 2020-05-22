@@ -1,0 +1,32 @@
+.header__mobile-button_open {
+
+}
+
+
+.header__mobile-button_open:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 66%;
+    background: #1A1B22;
+    opacity: 1;
+    top: 8px;
+    left: 17%;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.header__mobile-button_open:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 66%;
+    background: #1A1B22;
+    opacity: 1;
+    left: 17%;
+    bottom: 8px;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
