@@ -1,6 +1,6 @@
 export default class HeaderControl {
   constructor(color) {
-    this.headerBlock = document.querySelector('.header');
+    this.headerBlock = document.querySelector('.header_tmp');
     this.mobileMenuButton = document.querySelector('.header__mobile-button');
     this.mobileMenuContainer = document.querySelector('.header__wrap');
     this.logo = document.querySelector('.header__logo');

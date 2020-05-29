@@ -1,13 +1,14 @@
 import '../style/index.css';
 
-import SignIn from './popup/popupSignIn';
-import SignUp from './popup/popupSignUp';
-import Success from './popup/popupSuccess';
-import HeaderControl from './header/headerControl';
+import SignIn from '../js-tmp/popup_tmp/popupSignIn';
+import SignUp from '../js-tmp/popup_tmp/popupSignUp';
+import Success from '../js-tmp/popup_tmp/popupSuccess';
+import HeaderControl from '../js-tmp/header_tmp/headerControl';
 
 const loginButton = document.querySelector('.button__menu_login');
 const copyrightDate = document.querySelector('.footer__date');
 const successPopup = document.querySelector('.header__link_success');
+const successPopupArt = document.querySelector('.header__link_successArt');
 
 const headerController = new HeaderControl();
 
@@ -40,4 +41,5 @@ function successHandler() {
 }
 
 loginButton.addEventListener('click', signInHandler);
-successPopup.addEventListener('click', successHandler);
+// successPopup.addEventListener('click', successHandler);
+// successPopupArt.addEventListener('click', );

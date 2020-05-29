@@ -33,11 +33,12 @@
                 <li class="header__item header__item_active header__item_active_light"><a href="./"
                                                                                           class="header__link">Главная</a>
                 </li>
-                <li class="header__item"><a href="./articles.html" class="header__link">Сохранённые статьи</a></li>
+                <li class="header__item"><a href="saved-articles/index.html" class="header__link">Сохранённые статьи</a></li>
                 <li class="header__item"><p class="header__link header__link_success">Popup</p></li>
-                <li class="header__item header__item_button">
-                    <button class="button button__menu button__menu_login button__menu_light">Авторизоваться</button>
-                </li>
+              <li class="header__item"><p class="header__link header__link_successArt">PopupArt</p></li>
+              <li class="header__item header__item_button">
+                <button class="button button__menu button__menu_login button__menu_light">Авторизоваться</button>
+              </li>
                 <!--                <li class="header__item header__item_button">-->
                 <!--                    <button class="button button__menu button__menu_logout button__menu_light">Грета</button>-->
                 <!--                </li>-->
@@ -73,57 +74,57 @@
                 <p class="articles__loader-text">К сожалению по вашему запросу ничего не найдено.</p>
             </div>
             <ul class="articles__cards">
-                <li class="articles__card">
-                    <div class="articles__image"
-                         style="background-image: url(<%=require('./images/result-01.jpg').default%>);">
-                        <button class="articles__button articles__button_bookmark articles__button_bookmark_marked"></button>
-                    </div>
-                    <div class="articles__wrap">
-                        <div class="articles__date">2 августа, 2019</div>
-                        <a class="articles__card-link" href="./">
-                            <h3 class="articles__card-title">Национальное достояние – парки</h3>
-                        </a>
-                        <div class="articles__text">
-                            В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система
-                            национальных парков...
-                        </div>
-                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>
-                    </div>
-                </li>
-                <li class="articles__card">
-                    <div class="articles__image"
-                         style="background-image: url(<%=require('./images/result-02.jpg').default%>) ;">
-                        <!--                        <button class="articles__button articles__button_reg">Войдите, чтобы сохранять статьи</button>-->
-                        <button class="articles__button articles__button_bookmark"></button>
-                    </div>
-                    <div class="articles__wrap">
-                        <p class="articles__date">2 августа, 2019</p>
-                        <a class="articles__card-link" href="./">
-                            <h3 class="articles__card-title">Национальное достояние – парки</h3>
-                        </a>
-                        <p class="articles__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                            складываться система национальных парков...
-                        </p>
-                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>
-                    </div>
-                </li>
-                <li class="articles__card">
-                    <div class="articles__image"
-                         style="background-image: url(<%=require('./images/result-03.jpg').default%>);">
-                        <button class="articles__button articles__button_reg">Войдите, чтобы сохранять статьи</button>
-                        <button class="articles__button articles__button_bookmark"></button>
-                    </div>
-                    <div class="articles__wrap">
-                        <div class="articles__date">2 августа, 2019</div>
-                        <a class="articles__card-link" href="./">
-                            <h3 class="articles__card-title">Национальное достояние – парки</h3>
-                        </a>
-                        <div class="articles__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                            начала складываться система национальных парков...
-                        </div>
-                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>
-                    </div>
-                </li>
+<!--                <li class="articles__card">-->
+<!--                    <div class="articles__image"-->
+<!--                         style="background-image: url(<%=require('./images/result-01.jpg').default%>);">-->
+<!--                        <button class="articles__button articles__button_bookmark articles__button_bookmark_marked"></button>-->
+<!--                    </div>-->
+<!--                    <div class="articles__wrap">-->
+<!--                        <div class="articles__date">2 августа, 2019</div>-->
+<!--                        <a class="articles__card-link" href="./">-->
+<!--                            <h3 class="articles__card-title">Национальное достояние – парки</h3>-->
+<!--                        </a>-->
+<!--                        <div class="articles__text">-->
+<!--                            В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система-->
+<!--                            национальных парков...-->
+<!--                        </div>-->
+<!--                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="articles__card">-->
+<!--                    <div class="articles__image"-->
+<!--                         style="background-image: url(<%=require('./images/result-02.jpg').default%>) ;">-->
+<!--                        &lt;!&ndash;                        <button class="articles__button articles__button_reg">Войдите, чтобы сохранять статьи</button>&ndash;&gt;-->
+<!--                        <button class="articles__button articles__button_bookmark"></button>-->
+<!--                    </div>-->
+<!--                    <div class="articles__wrap">-->
+<!--                        <p class="articles__date">2 августа, 2019</p>-->
+<!--                        <a class="articles__card-link" href="./">-->
+<!--                            <h3 class="articles__card-title">Национальное достояние – парки</h3>-->
+<!--                        </a>-->
+<!--                        <p class="articles__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала-->
+<!--                            складываться система национальных парков...-->
+<!--                        </p>-->
+<!--                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="articles__card">-->
+<!--                    <div class="articles__image"-->
+<!--                         style="background-image: url(<%=require('./images/result-03.jpg').default%>);">-->
+<!--                        <button class="articles__button articles__button_reg">Войдите, чтобы сохранять статьи</button>-->
+<!--                        <button class="articles__button articles__button_bookmark"></button>-->
+<!--                    </div>-->
+<!--                    <div class="articles__wrap">-->
+<!--                        <div class="articles__date">2 августа, 2019</div>-->
+<!--                        <a class="articles__card-link" href="./">-->
+<!--                            <h3 class="articles__card-title">Национальное достояние – парки</h3>-->
+<!--                        </a>-->
+<!--                        <div class="articles__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь-->
+<!--                            начала складываться система национальных парков...-->
+<!--                        </div>-->
+<!--                        <a class="articles__link page__link page__link_animation" href="./">Лента.ру</a>-->
+<!--                    </div>-->
+<!--                </li>-->
             </ul>
             <!--            articles__button articles__button_load-->
             <button class="button button__content button__content_load" name="submit" type="submit">Показать еще

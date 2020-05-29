@@ -1,4 +1,4 @@
-import Popup from './popup';
+import Popup from './Popup';
 
 export default class Success extends Popup {
   constructor() {
@@ -11,8 +11,8 @@ export default class Success extends Popup {
 
   render(funcName) {
     this.container.insertAdjacentHTML('beforeend', this.template.trim());
-    console.log('popup opened');
-    // super.validate(this.container.querySelectorAll('.popup__input'),
+    console.log('popup_tmp opened');
+    // super.validate_tmp(this.container.querySelectorAll('.popup__input'),
     //     this.container.querySelector('.popup__button'));
     this.container.querySelector('.popup__link')
       .addEventListener('click', () => super.togglePopup(funcName));

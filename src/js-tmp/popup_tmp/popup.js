@@ -1,4 +1,4 @@
-import Validate from '../validate/validate';
+import Validate from '../validate_tmp/validate';
 
 export default class Popup {
   constructor() {
