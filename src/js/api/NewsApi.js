@@ -8,23 +8,8 @@ export default class NewsApi {
     this.sortBy = config.SORT_BY;
   }
 
-  _getDateFrom() {
-    // Date.prototype.toISOString()
-  }
-
-  _getDateTo() {
-
-  }
-
   getNews(keyWord) {
-    console.log(keyWord);
-    return fetch(`${this.serverUrl}?${this.requestName}=${keyWord}&language=${this.language}&pageSize=${this.newsCount}&sortBy=${this.sortBy}`,
-      {
-        method: 'GET',
-        headers: {
-          'X-Api-Key': this.userKey,
-        },
-      })
+    return fetch(`${this.serverUrl}?q=${keyWord}&apiKey=${this.userKey}&pageSize=${this.newsCount}&sortBy=${this.sortBy}`)
       .then((res) => {
         if (res.ok) {
           console.log(`Получение новостей с сервера: ${res.status} - Ok`);
@@ -35,4 +20,28 @@ export default class NewsApi {
       .then((value) => value.articles)
       .catch((error) => console.log('Ошибка соединения с сервером', error));
   }
+
+//
+//   getNews(keyWord) {
+//     console.log(keyWord);
+//     return fetch(`${this.serverUrl}?${this.requestName}=${keyWord}&language=${this.language}&pageSize=${this.newsCount}&sortBy=${this.sortBy}`,
+//       {
+//         method: 'GET',
+//         headers: {
+//           'X-Api-Key': this.userKey,
+//         },
+//       })
+//       .then((res) => {
+//         if (res.ok) {
+//           console.log(`Получение новостей с сервера: ${res.status} - Ok`);
+//           return res.json();
+//         }
+//         return Promise.reject(res.status);
+//       })
+//       .then((value) => value.articles)
+//       .catch((error) => console.log('Ошибка соединения с сервером', error));
+//   }
+// }
+
 }
+
