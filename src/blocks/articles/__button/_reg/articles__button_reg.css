@@ -1,30 +1,31 @@
 .articles__button_reg {
-    color: #000000;
-    border-radius: 10px;
-    font-size: 10px;
-    margin-bottom: 0;
-    padding: 15px 13px 15px;
-    margin-right: 5px;
-    align-self: flex-start;
+  display: none;
+  color: #000000;
+  border-radius: 10px;
+  font-size: 10px;
+  margin-bottom: 0;
+  padding: 15px 13px 15px;
+  margin-right: 5px;
+  align-self: flex-start;
 }
 
-@media only screen and (min-width : 480px) {
-
-}
-
-@media only screen and (min-width : 768px) {
-    .articles__button_reg {
-        display: none;
-    }
-}
-
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width: 480px) {
 
 }
 
-@media only screen and (min-width : 1200px) {
-    .articles__button_reg {
-        display: block;
-    }
+@media only screen and (min-width: 768px) {
+  .articles__button_reg {
+
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .articles__button_reg {
+
+  }
 }
 

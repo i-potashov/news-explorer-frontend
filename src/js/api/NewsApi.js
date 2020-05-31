@@ -1,9 +1,3 @@
-// NewsApi. Отвечает за взаимодействие с NewsAPI.
-// У класса есть конструктор, принимающий опции, и единственный обязательный метод getNews.
-// getNews возвращает список новостей на основе запроса.
-
-// Разобраться с датами
-
 export default class NewsApi {
   constructor(config) {
     this.serverUrl = config.SERVER_URL;
@@ -28,22 +22,17 @@ export default class NewsApi {
       {
         method: 'GET',
         headers: {
-          'X-Api-Key': this.userKey
-        }
+          'X-Api-Key': this.userKey,
+        },
       })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           console.log(`Получение новостей с сервера: ${res.status} - Ok`);
           return res.json();
-        } else {
-          return Promise.reject(res.status);
         }
+        return Promise.reject(res.status);
       })
-      .then(value => {
-        this.cardsArr = value;
-        return value;
-      })
-      .catch(error => console.log('Ошибка соединения с сервером', error));
+      .then((value) => value.articles)
+      .catch((error) => console.log('Ошибка соединения с сервером', error));
   }
-
 }

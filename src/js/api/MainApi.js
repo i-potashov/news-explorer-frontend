@@ -1,36 +1,54 @@
 export default class MainApi {
-  constructor() {
-    // this.url = 'http://localhost:3000';
-    // this.token = `Bearer ${localStorage.getItem('token')}`;
+  constructor(props) {
+    this._token = props.token;
+    this._url = props.url;
   }
 
   getJSONResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
+    if (res.ok) return res.json();
     return Promise.reject(res);
   }
 
   getUserData() {
-    return fetch(`https://api.backa.ru/users/me`, {
+    return fetch('https://api.backa.ru/users/me', {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-    })
+    }).then((res) => this.getJSONResponse(res));
   }
 
   getArticles() {
-    return fetch(`https://api.backa.ru/articles`, {
+    return fetch('https://api.backa.ru/articles', {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-    }).then(res => res.json());
+    }).then((res) => res.json());
+  }
+
+  saveArticle(articleData) {
+    return fetch('https://api.backa.ru/articles', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(articleData),
+    });
+  }
+
+  deleteArticle(articleId) {
+    return fetch(`https://api.backa.ru/articles/${articleId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    }).then((res) => this.getJSONResponse(res));
   }
 
   signup(userData) {
-    const {name, email, password} = userData;
-    return fetch(`https://api.backa.ru/signup`, {
+    const { name, email, password } = userData;
+    return fetch('https://api.backa.ru/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,15 +56,14 @@ export default class MainApi {
       body: JSON.stringify({
         name,
         email,
-        password
+        password,
       }),
-    }).then(res => this.getJSONResponse(res))
-      .then(res => localeStorage.set(res));
+    }).then((res) => this.getJSONResponse(res));
   }
 
   signin(userData) {
-    const {email, password} = userData;
-    return fetch(`https://api.backa.ru/signin`, {
+    const { email, password } = userData;
+    return fetch('https://api.backa.ru/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,9 +73,6 @@ export default class MainApi {
         password,
       }),
     })
-      .then(res => this.getJSONResponse(res))
-
+      .then((res) => this.getJSONResponse(res));
   }
-
-
 }

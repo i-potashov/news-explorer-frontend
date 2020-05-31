@@ -1,5 +1,5 @@
 .articles__container {
-    display: flex;
+    display: none;
     flex-direction: column;
     box-sizing: border-box;
     background: #F5F6F7;

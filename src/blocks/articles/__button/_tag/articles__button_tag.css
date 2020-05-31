@@ -1,4 +1,5 @@
 .articles__button_tag {
+    display: none;
     color: #000000;
     border-radius: 10px;
     font-size: 10px;
@@ -15,7 +16,7 @@
 
 @media only screen and (min-width : 768px) {
     .articles__button_tag {
-        display: none;
+
     }
 }
 
@@ -25,7 +26,6 @@
 
 @media only screen and (min-width : 1200px) {
     .articles__button_tag {
-        display: block;
         font-size: 14px;
         padding: 13px 13px 13px;
     }

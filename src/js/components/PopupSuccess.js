@@ -9,13 +9,13 @@ export default class Success extends Popup {
         `;
   }
 
-  render(funcName) {
+  render(handlerPopup) {
     this.container.insertAdjacentHTML('beforeend', this.template.trim());
     console.log('popup_tmp opened');
     // super.validate_tmp(this.container.querySelectorAll('.popup__input'),
     //     this.container.querySelector('.popup__button'));
     this.container.querySelector('.popup__link')
-      .addEventListener('click', () => super.togglePopup(funcName));
+      .addEventListener('click', () => super.togglePopup(handlerPopup));
     this.open();
   }
 

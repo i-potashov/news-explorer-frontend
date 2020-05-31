@@ -1,18 +1,46 @@
-// В критериях JavaScript-кода «на пятёрку» есть пункт «создание базового компонента» — BaseComponent.
-// Дело в том, что многие интерфейсные классы принимают обработчики событий, которые добавляют элементам интерфейса.
-// Чтобы эта функциональность не дублировалась, имеет смысл выделить её в отдельный класс.
-// Тогда интерфейсные классы смогут его расширять и получать функциональность автоматически.
-//   У класса BaseComponent должен быть метод constructor.
-//   Он принимает на вход массив обработчиков событий и вызывает приватный метод _setHandlers.
-//   Этот метод добавляет обработчики конкретным элементам.
-
 export default class BaseComponent {
   constructor() {
-
+    this._handlers = [];
+    this.setListeners = this.setListeners.bind(this);
   }
 
-  _setHandlers() {
-
+  _saveListeners(listeners) {
+    listeners.forEach(({ event, element, callback }) => {
+      const bindedCallback = callback.bind(this);
+      this._handlers.push({ event, element, bindedCallback });
+    });
   }
 
+  _addEventListeners() {
+    this._handlers.forEach(({ event, element, bindedCallback }) => {
+      if (typeof bindedCallback === 'function') {
+        if (element === 'window') {
+          window.addEventListener(event, bindedCallback);
+        } else if (element === 'element') {
+          this._element.addEventListener(event, bindedCallback);
+        } else {
+          this._element.querySelector(element).addEventListener(event, bindedCallback);
+        }
+      }
+    });
+  }
+
+  setListeners(listeners) {
+    this._saveListeners(listeners);
+    this._addEventListeners();
+  }
+
+  _removeListeners() {
+    this._handlers.forEach(({ event, element, bindedCallback }) => {
+      if (element === 'window') {
+        window.removeEventListener(event, bindedCallback);
+      } else if (element === 'element') {
+        this._element.removeEventListener(event, bindedCallback);
+      } else {
+        this._element
+          .querySelector(element)
+          .removeEventListener(event, bindedCallback);
+      }
+    });
+  }
 }

@@ -4,11 +4,11 @@ export default class SignUp extends Popup {
   constructor(mainApi) {
     super();
     this.mainApi = mainApi;
-    console.log(this.mainApi);
     this.submit = this.submit.bind(this);
     this._element = null;
     this.values = {};
     this.submit = this.submit.bind(this);
+    this.handlerSuccess = null;
     this.template = `
             <h3 class="popup__title">Регистрация</h3>
                 <form class="popup__form" name="auth">
@@ -32,27 +32,30 @@ export default class SignUp extends Popup {
                 </form>`;
   }
 
-  render(funcName) {
+  render(handlerPopup, handlerSuccess) {
+    this.handlerSuccess = handlerSuccess;
     this.container.insertAdjacentHTML('beforeend', this.template.trim());
     this.submitButton = this.container.querySelector('.button__popup_sign-up');
     this.submitButton.addEventListener('click', this.submit);
     this._element = document.querySelector('.popup__form');
     this.container.querySelector('.popup__link')
-      .addEventListener('click', () => super.togglePopup(funcName));
+      .addEventListener('click', () => super.togglePopup(handlerPopup));
     this.open();
   }
 
   getInputValues() {
-    Array.from(this._element.elements).forEach(elem => {
-      if (elem.name !== 'submit')this.values[elem.name] = elem.value;
+    Array.from(this._element.elements).forEach((elem) => {
+      if (elem.name !== 'submit') this.values[elem.name] = elem.value;
     });
-    console.log('signup---->',this.values);
     return this.values;
   }
 
   submit(e) {
     e.preventDefault();
-
-    this.mainApi.signup(this.getInputValues());
+    this.mainApi.signup(this.getInputValues())
+      .then(() => {
+        this.close();
+        this.handlerSuccess();
+      });
   }
 }

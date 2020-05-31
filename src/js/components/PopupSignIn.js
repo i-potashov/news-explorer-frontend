@@ -9,6 +9,7 @@ export default class SignIn extends Popup {
     this._element = null;
     this.values = {};
     this.submit = this.submit.bind(this);
+    this.headerRender = null;
     // this.submit = this.submit.bind(this);
     this.template = `
             <h3 class="popup__title">Вход</h3>
@@ -29,7 +30,9 @@ export default class SignIn extends Popup {
             </form>`;
   }
 
-  render(funcName) {
+  render(headerRender, handlerPopup) {
+    this.headerRender = headerRender;
+    console.log('this.headerRender', headerRender);
     this.container.insertAdjacentHTML('beforeend', this.template.trim());
     this.userEmail = document.querySelector('.popup__input_type_email');
     this.userPassword = document.querySelector('.popup__input_type_password');
@@ -37,13 +40,13 @@ export default class SignIn extends Popup {
     this.submitButton.addEventListener('click', this.submit);
     this._element = document.querySelector('.popup__form');
     this.container.querySelector('.popup__link')
-      .addEventListener('click', () => super.togglePopup(funcName));
+      .addEventListener('click', () => super.togglePopup(handlerPopup));
     this.open();
   }
 
   getInputValues() {
-    Array.from(this._element.elements).forEach(elem => {
-      if (elem.name !== 'submit')this.values[elem.name] = elem.value;
+    Array.from(this._element.elements).forEach((elem) => {
+      if (elem.name !== 'submit') this.values[elem.name] = elem.value;
     });
     return this.values;
   }
@@ -52,9 +55,11 @@ export default class SignIn extends Popup {
     e.preventDefault();
     this.mainApi.signin(this.getInputValues())
       .then((data) => {
-        console.log('data.token=============',data.token);
         localStorage.setItem('token', data.token);
-        }
-      );
+      })
+      .then(() => {
+        this.headerRender();
+        this.close();
+      });
   }
 }
