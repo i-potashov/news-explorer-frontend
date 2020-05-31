@@ -30,7 +30,6 @@ export default class MainApi {
     return fetch('https://api.backa.ru/articles', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify(articleData),
@@ -50,9 +49,6 @@ export default class MainApi {
     const { name, email, password } = userData;
     return fetch('https://api.backa.ru/signup', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         name,
         email,
@@ -65,9 +61,6 @@ export default class MainApi {
     const { email, password } = userData;
     return fetch('https://api.backa.ru/signin', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         email,
         password,
