@@ -3,13 +3,27 @@ export default class NewsApi {
     this.serverUrl = config.SERVER_URL;
     this.userKey = config.KEY;
     this.requestName = config.REQUEST_NAME;
-    this.language = config.LANGUAGE;
     this.newsCount = config.NEWS_COUNT;
     this.sortBy = config.SORT_BY;
+    this.date = config.DATE;
   }
 
+  getToDate() {
+    const date = new Date();
+    return date.toISOString().substring(0, 10);
+  }
+
+  getFromDate() {
+    const currentDate = new Date();
+    const newDate = currentDate.setDate(currentDate.getDate() - this.date);
+    const latestNewsDate = new Date(newDate);
+
+    return latestNewsDate.toISOString().substring(0, 10);
+  }
+
+
   getNews(keyword) {
-    return fetch(`https://newsapi.org/v2/everything?q=${keyword}&apiKey=1c98d96ded7a45c58e8435ca81fa9fb8&pageSize=30`,
+    return fetch(`${this.serverUrl}?${this.requestName}=${keyword}&apiKey=1c98d96ded7a45c58e8435ca81fa9fb8&from=${this.getFromDate()}&to=${this.getToDate()}&pageSize=${this.newsCount}`,
       {
         headers: {
           'x-api-key': `${this.userKey}`

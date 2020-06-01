@@ -34,7 +34,7 @@ export default class MainApi {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify(articleData),
-    });
+    }).then((res) => this.getJSONResponse(res));
   }
 
   deleteArticle(articleId) {

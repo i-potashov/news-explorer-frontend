@@ -1,3 +1,5 @@
+import setUserInfo from '../utils/user-info';
+
 export default class NewsCardList {
   constructor(mainApi) {
     this.mainApi = mainApi;
@@ -13,49 +15,54 @@ export default class NewsCardList {
     this.loaderContainer = document.querySelector('.articles__loader');
     this.errorContainer = document.querySelector('.articles__not-found');
     this.loadButton = document.querySelector('.button__content_load');
-    this.saveArticle = this.saveArticle.bind(this);
+    // this.saveArticle = this.saveArticle.bind(this);
   }
 
-  setArticlesArray(articles, keyWord) {
+  setArticlesArray(articles, keyWord, lastNewsCount) {
     this.keyWord = keyWord;
     this.articlesArray = articles;
     this.articlesArrayLenth = articles.length;
+    this.lastNewsCount = lastNewsCount;
   }
 
   renderResults() {
-    this.loaderContainer.style.display = 'block';
-    if (this.articlesArrayLenth > 2) {
-      for (let i = this.lastNewsCount; i < this.lastNewsCount + 3; i++) {
-        this.addCard(this.articlesArray[i]);
-        this.showMore();
+    if (this.articlesArray.length > 3) {
+      for (let i = 0; i < 3; i++) {
+        this.addCard(this.articlesArray[0]);
+        this.articlesArray.shift();
       }
-      this.articlesArrayLenth -= 3;
-      this.lastNewsCount += 3;
-      this.loaderContainer.style.display = 'none';
+      this.showMore();
     } else {
-      for (let i = this.lastNewsCount; i < this.lastNewsCount + (this.articlesArrayLenth); i++) {
-        this.addCard(this.articlesArray[i]);
-        this.showMore();
+      for (let i = 0; i < this.articlesArray.length; i++) {
+        this.addCard(this.articlesArray[0]);
+        this.articlesArray.shift();
       }
-      this.loaderContainer.style.display = 'none';
+      this.hideShowMore();
     }
+    console.log(this.articlesArray.length);
+
   }
 
-  addCard({
-    urlToImage, publishedAt, url, title, description, author, sourceName,
-  }) {
+  addCard(article) {
     localStorage.getItem('token')
-      ? this.cardTemplateAuthorized({
-        urlToImage, publishedAt, url, title, description, author, sourceName,
-      })
-      : this.cardTemplateUnauthorized({
-        urlToImage, publishedAt, url, title, description, author, sourceName,
-      });
+      ? this.cardTemplateAuthorized(article)
+      : this.cardTemplateUnauthorized(article);
   }
 
-  cardTemplateUnauthorized({
-    urlToImage, publishedAt, url, title, description, author, sourceName,
-  }) {
+  dateConvert(date) {
+    const convertDate = new Date(date);
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря',];
+    return `${convertDate.getDate()} ${months[convertDate.getMonth()]}, ${convertDate.getFullYear()}`;
+  }
+
+  cardTemplateUnauthorized(article) {
+    const imageUrl = article.urlToImage || 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
+    const date = this.dateConvert(article.publishedAt);
+    const linkUrl = article.url;
+    const title = article.title || 'Ссылка на источник';
+    const text = article.description || 'Описание отсутствует';
+    const sourseName = article.source.name || 'Источник';
+
     const newsCardTemplate = `
                     <li class="articles__card">
                         <div class="articles__image">
@@ -75,24 +82,39 @@ export default class NewsCardList {
             `;
     this.element = document.createElement('div');
     this.element.insertAdjacentHTML('beforeend', newsCardTemplate.trim());
-    this.element.querySelector('.articles__image').style.backgroundImage = `url(${urlToImage || null})`;
+    this.element.querySelector('.articles__image').style.backgroundImage = `url(${imageUrl})`;
     this.element.querySelector('.articles__button_tag').textContent = this.keyWord;
     this.element.querySelector('.articles__button_reg').textContent = 'Войдите, чтобы сохранять статьи';
-    this.element.querySelector('.articles__date').textContent = publishedAt;
-    this.element.querySelector('.articles__card-link').setAttribute('href', url);
+    this.element.querySelector('.articles__date').textContent = date;
+    this.element.querySelector('.articles__card-link').setAttribute('href', linkUrl);
     this.element.querySelector('.articles__card-title').textContent = title;
-    this.element.querySelector('.articles__text').textContent = description;
-    this.element.querySelector('.articles__link').setAttribute('href', sourceName);
-    this.element.querySelector('.articles__link').textContent = author;
+    this.element.querySelector('.articles__text').textContent = text;
+    this.element.querySelector('.articles__link').setAttribute('href', linkUrl);
+    this.element.querySelector('.articles__link').textContent = sourseName;
     this.addBookmarkListener();
     this.container.append(this.element.firstChild);
   }
 
-  cardTemplateAuthorized({
-    urlToImage, publishedAt, url, title, description, author, sourceName,
-  }) {
+  cardTemplateAuthorized(article) {
+    let imgSrc = 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
+    let imgNotFound = new Image;
+    imgNotFound.src = imgSrc;
+    let imageUrl;
+    const date = this.dateConvert(article.publishedAt);
+    const linkUrl = article.url;
+    const title = article.title || 'Ссылка на источник';
+    const text = article.description || 'Описание отсутствует';
+    const sourseName = article.source.name || 'Источник';
+
+    if (article.urlToImage === undefined) {
+      imageUrl = imgNotFound.src;
+    } else {
+      imageUrl = article.urlToImage;
+    }
+
     const newsCardTemplate = `
                     <li class="articles__card">
+                        <span class="articles__id"></span>
                         <div class="articles__image">
                             <button class="articles__button articles__button_tag"></button>
                             <button class="articles__button articles__button_bookmark"></button>
@@ -109,21 +131,49 @@ export default class NewsCardList {
             `;
     this.element = document.createElement('div');
     this.element.insertAdjacentHTML('beforeend', newsCardTemplate.trim());
-    this.element.querySelector('.articles__image').style.backgroundImage = `url(${urlToImage || null})`;
+    this.element.querySelector('.articles__image').style.backgroundImage = `url(${imageUrl})`;
     this.element.querySelector('.articles__button_tag').textContent = this.keyWord;
-    this.element.querySelector('.articles__date').textContent = publishedAt;
-    this.element.querySelector('.articles__card-link').setAttribute('href', url);
+    this.element.querySelector('.articles__date').textContent = date;
+    this.element.querySelector('.articles__card-link').setAttribute('href', linkUrl);
     this.element.querySelector('.articles__card-title').textContent = title.slice(0, 29);
-    this.element.querySelector('.articles__text').textContent = description;
-    this.element.querySelector('.articles__link').setAttribute('href', sourceName);
-    this.element.querySelector('.articles__link').textContent = author;
+    this.element.querySelector('.articles__text').textContent = text;
+    this.element.querySelector('.articles__link').setAttribute('href', linkUrl);
+    this.element.querySelector('.articles__link').textContent = sourseName;
     this.addSaveListener();
     this.container.append(this.element.firstChild);
   }
 
-  cardTemplateSaved({
-    _id, date, image, keyword, link, source, text, title,
-  }) {
+  getArticleParams(e) {
+
+    const articleContainer = e.target.closest('.articles__card');
+
+    const articleData = {
+      keyword: articleContainer.querySelector('.articles__button_tag').textContent,
+      title: articleContainer.querySelector('.articles__card-title').textContent,
+      text: articleContainer.querySelector('.articles__text').textContent,
+      date: articleContainer.querySelector('.articles__date').textContent,
+      source: articleContainer.querySelector('.articles__link').textContent,
+      link: articleContainer.querySelector('.articles__link').href,
+      image: articleContainer.querySelector('.articles__image').style.backgroundImage.slice(5, -2),
+    };
+
+    if (e.target.classList.contains('articles__button_bookmark_marked')) {
+      this.mainApi.deleteArticle(articleContainer.querySelector('.articles__id').textContent)
+        .then(() => {
+          e.target.classList.remove('articles__button_bookmark_marked');
+          articleContainer.querySelector('.articles__id').textContent = '';
+        });
+    } else {
+      this.mainApi.saveArticle(articleData)
+        .then(res => {
+          articleContainer.querySelector('.articles__id').textContent = res._id;
+          e.target.classList.add('articles__button_bookmark_marked');
+        });
+    }
+  }
+
+
+  cardTemplateSaved({_id, date, image, keyword, link, source, text, title,}) {
     const newsCardTemplate = `
                     <li class="articles__card">
                         <span class="articles__id"></span>
@@ -145,7 +195,7 @@ export default class NewsCardList {
     this.element = document.createElement('div');
     this.element.insertAdjacentHTML('beforeend', newsCardTemplate.trim());
     this.element.querySelector('.articles__id').textContent = _id;
-    this.element.querySelector('.articles__image').style.backgroundImage = `url(${image || null})`;
+    this.element.querySelector('.articles__image').style.backgroundImage = `url(${image})`;
     this.element.querySelector('.articles__button_tag').textContent = keyword;
     this.element.querySelector('.articles__button_unsave').textContent = 'Убрать из сохранённых';
     this.element.querySelector('.articles__date').textContent = date;
@@ -160,24 +210,17 @@ export default class NewsCardList {
     this.container.append(this.element.firstChild);
   }
 
-  getArticleParams(e) {
+  deleteArticle(e) {
     const articleContainer = e.target.closest('.articles__card');
-    e.target.classList.add('articles__button_bookmark_marked');
-    const articleData = {
-      keyword: articleContainer.querySelector('.articles__button_tag').textContent,
-      title: articleContainer.querySelector('.articles__card-title').textContent,
-      text: articleContainer.querySelector('.articles__text').textContent,
-      date: articleContainer.querySelector('.articles__date').textContent,
-      source: articleContainer.querySelector('.articles__link').href,
-      link: articleContainer.querySelector('.articles__link').href,
-      image: articleContainer.querySelector('.articles__image').style.backgroundImage.slice(5, -2),
-    };
-    this.saveArticle(articleData);
+    const articleId = articleContainer.querySelector('.articles__id').textContent;
+    this.mainApi.deleteArticle(articleId)
+      // .then(() => document.location.reload());
+      .then(() => {
+        e.target.closest('.articles__card').remove();
+        setUserInfo(this.mainApi);
+      });
   }
 
-  saveArticle(articleData) {
-    this.mainApi.saveArticle(articleData);
-  }
 
   showNeedReg(e) {
     if (e.target.classList.contains('articles__button_bookmark')) {
@@ -203,13 +246,6 @@ export default class NewsCardList {
     }
   }
 
-  deleteArticle(e) {
-    const articleContainer = e.target.closest('.articles__card');
-    const articleId = articleContainer.querySelector('.articles__id').textContent;
-    this.mainApi.deleteArticle(articleId)
-      .then(() => document.location.reload());
-  }
-
   addDeleteListener() {
     this.element.firstChild.querySelector('.articles__button_delete').addEventListener('click', this.deleteArticle.bind(this));
   }
@@ -229,14 +265,6 @@ export default class NewsCardList {
     this.element.firstChild.querySelector('.articles__button_delete').addEventListener('mouseout', this.hideUnsave);
   }
 
-  renderLoader() {
-    this.loaderContainer.style.display = 'block';
-  }
-
-  removeLoader() {
-    this.loaderContainer.style.display = 'none';
-  }
-
   renderError() {
     this.errorContainer.style.display = 'block';
   }
@@ -254,12 +282,13 @@ export default class NewsCardList {
   }
 
   showMore() {
-    if (this.articlesArrayLenth > 3) {
-      this.loadButton.style.display = 'block';
-      this.loadButton.blur();
-    } else {
-      this.loadButton.style.display = 'none';
-    }
+    this.loadButton.style.display = 'block';
+    this.loadButton.blur();
+  }
+
+  hideShowMore() {
+    this.loadButton.style.display = 'none';
+    this.removeListener();
   }
 
   addListener() {

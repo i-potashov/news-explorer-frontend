@@ -22,7 +22,6 @@ setUserInfo(mainApi);
 
 mainApi.getArticles()
   .then((res) => {
-    console.log('!!!!', res[0]);
     for (let i = 0; i < res.length; i++) {
       savedCardList.cardTemplateSaved(res[i]);
     }
