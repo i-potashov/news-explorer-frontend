@@ -86,21 +86,12 @@ export default class NewsCardList {
   }
 
   cardTemplateAuthorized(article) {
-    const imgSrc = 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
-    const imgNotFound = new Image();
-    imgNotFound.src = imgSrc;
-    let imageUrl;
+    const imageUrl = article.urlToImage || 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
     const date = this.dateConvert(article.publishedAt);
     const linkUrl = article.url;
     const title = article.title || 'Ссылка на источник';
     const text = article.description || 'Описание отсутствует';
     const sourseName = article.source.name || 'Источник';
-
-    if (article.urlToImage === undefined) {
-      imageUrl = imgNotFound.src;
-    } else {
-      imageUrl = article.urlToImage;
-    }
 
     const newsCardTemplate = `
                     <li class="articles__card">
