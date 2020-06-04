@@ -3,7 +3,6 @@ export default {
   KEY: '1c98d96ded7a45c58e8435ca81fa9fb8',
   REQUEST_NAME: 'qInTitle',
   NEWS_COUNT: '30',
-  SORT_BY: 'publishedAt',
   DATE: 7,
 };
 

@@ -73,6 +73,6 @@ export default class MainApi {
         password,
       }),
     })
-      .then((res) => this.getJSONResponse(res))
+      .then((res) => this.getJSONResponse(res));
   }
 }

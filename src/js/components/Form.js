@@ -1,6 +1,16 @@
 import errors from '../constants/errors';
 
-const {ERROR_COUNT_WORDS, ERROR_PASSWORD_COUNT, ERROR_EMAIL, ERROR_REQUIRED, ERROR_NAME, USER_NOT_FOUND, SERVER_ERROR, NOT_UNIQUE, INVALID_EMAIL} = errors;
+const {
+  ERROR_COUNT_WORDS,
+  ERROR_PASSWORD_COUNT,
+  ERROR_EMAIL,
+  ERROR_REQUIRED,
+  ERROR_NAME,
+  USER_NOT_FOUND,
+  SERVER_ERROR,
+  NOT_UNIQUE,
+  INVALID_EMAIL,
+} = errors;
 
 export default class Form {
   constructor(form, button) {

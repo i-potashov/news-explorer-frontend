@@ -1,33 +1,25 @@
-import setUserInfo from '../utils/user-info';
-
 export default class NewsCardList {
-  constructor(mainApi) {
+  constructor(mainApi, userController) {
     this.mainApi = mainApi;
+    this.userController = userController || null;
     this.element = null;
     this.articlesArray = null;
-    this.articlesArrayLenth = null;
     this.keyWord = null;
+    this.articlesColumns = 3;
     this.loadButton = document.querySelector('.button__content_load');
-    this.newElement = null;
-    this.lastNewsCount = 0;
     this.mainContainer = document.querySelector('.articles__container');
     this.container = document.querySelector('.articles__cards');
-    this.loaderContainer = document.querySelector('.articles__loader');
-    this.errorContainer = document.querySelector('.articles__not-found');
     this.loadButton = document.querySelector('.button__content_load');
-    // this.saveArticle = this.saveArticle.bind(this);
   }
 
-  setArticlesArray(articles, keyWord, lastNewsCount) {
+  setArticlesArray(articles, keyWord) {
     this.keyWord = keyWord;
     this.articlesArray = articles;
-    this.articlesArrayLenth = articles.length;
-    this.lastNewsCount = lastNewsCount;
   }
 
   renderResults() {
-    if (this.articlesArray.length > 3) {
-      for (let i = 0; i < 3; i++) {
+    if (this.articlesArray.length > this.articlesColumns) {
+      for (let i = 0; i < this.articlesColumns; i++) {
         this.addCard(this.articlesArray[0]);
         this.articlesArray.shift();
       }
@@ -39,8 +31,6 @@ export default class NewsCardList {
       }
       this.hideShowMore();
     }
-    console.log(this.articlesArray.length);
-
   }
 
   addCard(article) {
@@ -51,7 +41,7 @@ export default class NewsCardList {
 
   dateConvert(date) {
     const convertDate = new Date(date);
-    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря',];
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
     return `${convertDate.getDate()} ${months[convertDate.getMonth()]}, ${convertDate.getFullYear()}`;
   }
 
@@ -96,8 +86,8 @@ export default class NewsCardList {
   }
 
   cardTemplateAuthorized(article) {
-    let imgSrc = 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
-    let imgNotFound = new Image;
+    const imgSrc = 'https://i.pinimg.com/736x/da/e7/49/dae749086624b174cb51b9377839f01f.jpg';
+    const imgNotFound = new Image();
     imgNotFound.src = imgSrc;
     let imageUrl;
     const date = this.dateConvert(article.publishedAt);
@@ -144,9 +134,7 @@ export default class NewsCardList {
   }
 
   getArticleParams(e) {
-
     const articleContainer = e.target.closest('.articles__card');
-
     const articleData = {
       keyword: articleContainer.querySelector('.articles__button_tag').textContent,
       title: articleContainer.querySelector('.articles__card-title').textContent,
@@ -156,7 +144,6 @@ export default class NewsCardList {
       link: articleContainer.querySelector('.articles__link').href,
       image: articleContainer.querySelector('.articles__image').style.backgroundImage.slice(5, -2),
     };
-
     if (e.target.classList.contains('articles__button_bookmark_marked')) {
       this.mainApi.deleteArticle(articleContainer.querySelector('.articles__id').textContent)
         .then(() => {
@@ -165,7 +152,7 @@ export default class NewsCardList {
         });
     } else {
       this.mainApi.saveArticle(articleData)
-        .then(res => {
+        .then((res) => {
           articleContainer.querySelector('.articles__id').textContent = res._id;
           e.target.classList.add('articles__button_bookmark_marked');
         });
@@ -173,7 +160,9 @@ export default class NewsCardList {
   }
 
 
-  cardTemplateSaved({_id, date, image, keyword, link, source, text, title,}) {
+  cardTemplateSaved({
+    _id, date, image, keyword, link, source, text, title,
+  }) {
     const newsCardTemplate = `
                     <li class="articles__card">
                         <span class="articles__id"></span>
@@ -214,13 +203,15 @@ export default class NewsCardList {
     const articleContainer = e.target.closest('.articles__card');
     const articleId = articleContainer.querySelector('.articles__id').textContent;
     this.mainApi.deleteArticle(articleId)
-      // .then(() => document.location.reload());
       .then(() => {
         e.target.closest('.articles__card').remove();
-        setUserInfo(this.mainApi);
+        this.mainApi.getUserData()
+          .then((res) => this.userController.setUserName(res));
+        this.mainApi.getArticles()
+          .then((res) => this.userController.setArticlesCount(res))
+          .then((res) => this.userController.setKeywords(res));
       });
   }
-
 
   showNeedReg(e) {
     if (e.target.classList.contains('articles__button_bookmark')) {
@@ -265,20 +256,8 @@ export default class NewsCardList {
     this.element.firstChild.querySelector('.articles__button_delete').addEventListener('mouseout', this.hideUnsave);
   }
 
-  renderError() {
-    this.errorContainer.style.display = 'block';
-  }
-
-  removeError() {
-    this.errorContainer.style.display = 'none';
-  }
-
   showMainContainer() {
     this.mainContainer.style.display = 'flex';
-  }
-
-  hideMainContainer() {
-    this.mainContainer.style.display = 'none';
   }
 
   showMore() {

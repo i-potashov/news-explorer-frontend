@@ -6,7 +6,7 @@ export default {
   ERROR_REQUIRED: 'Это обязательное поле',
   ERROR_NAME: 'Введите настоящее имя',
 
-  //Server errors
+  // Server errors
   NOT_FOUND: 'Запрашиваемый ресурс не найден',
   ITEM_NOT_FOUND: 'Данная карточка не существует',
   INVALID_LINK: 'Неверный формат ссылки',
@@ -17,5 +17,4 @@ export default {
   ACCESS_DENIED: 'Доступ отклонен',
   USER_NOT_FOUND: 'Неправильная почта или пароль',
   NOT_UNIQUE: 'Пользователь с данным email уже зарегестирован',
-}
-;
+};

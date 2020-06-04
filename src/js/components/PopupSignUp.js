@@ -1,5 +1,5 @@
 import Popup from './Popup';
-import Validate from "./Form";
+import Validate from './Form';
 
 export default class SignUp extends Popup {
   constructor(mainApi) {
@@ -66,8 +66,8 @@ export default class SignUp extends Popup {
       .then(() => {
         this.close();
         this.handlerSuccess();
-      }).catch((err)=> {
-      this.errorSignUp.textContent = this.errorHandler(err.status);
-    });
+      }).catch((err) => {
+        this.errorSignUp.textContent = this.errorHandler(err.status);
+      });
   }
 }

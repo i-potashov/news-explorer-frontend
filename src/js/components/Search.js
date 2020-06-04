@@ -20,8 +20,7 @@ export default class Search {
   }
 
   getSearchResult(articles) {
-
-    this.newsCardList.setArticlesArray(articles.map(val=>val), this.keyWord, this.lastNewsCount);
+    this.newsCardList.setArticlesArray(articles.map((val) => val), this.keyWord, this.lastNewsCount);
     this.newsCardList.showMainContainer();
     this.newsCardList.renderResults();
     if (this.checkResult === false) {
@@ -32,7 +31,7 @@ export default class Search {
 
   searchHandler(e) {
     e.preventDefault();
-    if(this.checkResult === true) {
+    if (this.checkResult === true) {
       this.clearSearchResult();
       this.titleContainer.style.display = 'flex';
       this.errorContainer.style.display = 'none';

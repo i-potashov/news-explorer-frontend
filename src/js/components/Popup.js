@@ -5,6 +5,7 @@ export default class Popup {
     this.container = document.querySelector('.popup__wrap');
     this.logo = document.querySelector('.header__logo');
     this.handleEscClose = this.handleEscClose.bind(this);
+    this.handleContainerClose = this.handleContainerClose.bind(this);
     this.closeTablet = this.closeTablet.bind(this);
     this.close = this.close.bind(this);
     this.pageWidth = null;
@@ -15,6 +16,7 @@ export default class Popup {
     this.popup.classList.remove('popup__container_closed');
     this.popup.classList.add('popup__container_opened');
     document.addEventListener('keydown', this.handleEscClose);
+    document.addEventListener('click', this.handleContainerClose);
     this.addListeners();
   }
 
@@ -44,7 +46,6 @@ export default class Popup {
 
   closeTablet(e) {
     if (e.target.classList.contains('popup__container_opened')) {
-      console.log('true');
       this.close();
       this.removeListeners();
     }
@@ -53,6 +54,13 @@ export default class Popup {
   handleEscClose(e) {
     if (e.keyCode === 27) {
       this.close();
+    }
+  }
+
+  handleContainerClose(e) {
+    if (e.target.classList.contains('popup__container')) {
+      this.close();
+      this.removeListeners();
     }
   }
 
