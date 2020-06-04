@@ -1,6 +1,5 @@
 export default class Popup {
   constructor() {
-    // this.controllerClass = null;
     this.popup = document.querySelector('.popup__container');
     this.closeButton = document.querySelector('.popup__close');
     this.container = document.querySelector('.popup__wrap');
@@ -12,7 +11,6 @@ export default class Popup {
   }
 
   open() {
-    // this.controllerClass = controllerClass || null;
     this.checkColor();
     this.popup.classList.remove('popup__container_closed');
     this.popup.classList.add('popup__container_opened');
@@ -30,10 +28,6 @@ export default class Popup {
     this.popup.classList.remove('popup__container_opened');
     this.popup.classList.add('popup__container_closed');
     this.removeListeners();
-    // this.controllerClass.render();
-    // if (this.controllerClass.color === 'dark') {
-    //   this.controllerClass.render();
-    // }
     while (this.container.firstChild) {
       this.container.firstChild.remove();
     }
@@ -43,12 +37,6 @@ export default class Popup {
     this.popup.classList.remove('popup__container_opened');
     this.popup.classList.add('popup__container_closed');
     this.removeListeners();
-    // this.controllerClass.unblockPage();
-    // if (document.documentElement.clientWidth <= 720) {
-    //   this.controllerClass.showMobileMenuIcon();
-    // } else {
-    //   this.controllerClass.hideMobileMenuIcon();
-    // }
     while (this.container.firstChild) {
       this.container.firstChild.remove();
     }

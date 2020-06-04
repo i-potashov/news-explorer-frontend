@@ -17,7 +17,6 @@ export default class Search {
     while (this.resultContainer.firstChild) {
       this.resultContainer.removeChild(this.resultContainer.firstChild);
     }
-    // this.checkResult = false;
   }
 
   getSearchResult(articles) {
@@ -25,16 +24,11 @@ export default class Search {
     this.newsCardList.setArticlesArray(articles.map(val=>val), this.keyWord, this.lastNewsCount);
     this.newsCardList.showMainContainer();
     this.newsCardList.renderResults();
-    console.log('!!!!',!!this.resultContainer.firstChild);
     if (this.checkResult === false) {
       this.newsCardList.addListener();
     }
     this.checkResult = true;
   }
-
-  // getSearchNews(keyWord) {
-  //   return this.newsApi.getNews(keyWord);
-  // }
 
   searchHandler(e) {
     e.preventDefault();
