@@ -7,8 +7,8 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/js/index.js',
-    articles: './src/js/articles.js',
+    main: './src/index.js',
+    articles: './src/saved-articles/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -80,7 +80,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/articles.html',
+      template: './src/saved-articles/index.html',
       filename: 'articles.html',
     }),
     new WebpackMd5Hash(),

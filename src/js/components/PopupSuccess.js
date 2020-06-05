@@ -1,4 +1,4 @@
-import Popup from './popup';
+import Popup from './Popup';
 
 export default class Success extends Popup {
   constructor() {
@@ -9,17 +9,10 @@ export default class Success extends Popup {
         `;
   }
 
-  render(funcName) {
+  render(handlerPopup) {
     this.container.insertAdjacentHTML('beforeend', this.template.trim());
-    console.log('popup opened');
-    // super.validate(this.container.querySelectorAll('.popup__input'),
-    //     this.container.querySelector('.popup__button'));
     this.container.querySelector('.popup__link')
-      .addEventListener('click', () => super.togglePopup(funcName));
+      .addEventListener('click', () => super.togglePopup(handlerPopup));
     this.open();
   }
-
-  // submit(e) {
-  //   // e.preventDefault();
-  // }
 }

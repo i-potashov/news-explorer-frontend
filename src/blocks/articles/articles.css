@@ -16,6 +16,7 @@
 @import url(__subtitle/articles__subtitle.css);
 @import url(__not-image/articles__not-image.css);
 @import url(__card-link/articles__card-link.css);
+@import url(__id/articles__id.css);
 
 .articles {
     font-family: Roboto, Arial, Helvetica, sans-serif;

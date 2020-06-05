@@ -4,6 +4,7 @@
     border: none;
     margin: 0 auto 32px;
     max-width: 300px;
+    display: none;
 }
 
 .button__content_load:hover {

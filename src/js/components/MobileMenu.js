@@ -1,4 +1,4 @@
-export default class HeaderControl {
+export default class MobileMenu {
   constructor(color) {
     this.headerBlock = document.querySelector('.header');
     this.mobileMenuButton = document.querySelector('.header__mobile-button');
@@ -16,7 +16,6 @@ export default class HeaderControl {
       if (this.color === 'dark') {
         this.changeColor();
         this.logo.style.color = 'white';
-        console.log(this.logo);
       }
       this.toggleMobileMenuIcon();
       this.headerBlock.classList.toggle('header_fixed');
@@ -38,36 +37,14 @@ export default class HeaderControl {
     this.mobileMenuButton.classList.toggle('header__mobile-button_open');
   }
 
-  checkPopupVisible() {
-    if (this.mobileMenuContainer.classList.contains('header__wrap_open')) {
-      this.toggleMobileMenu();
-      this.headerBlock.classList.remove('header_fixed');
-      this.mobileMenuButton.classList.add('header__mobile-button_open');
-    }
-  }
-
   changeColor() {
     this.mobileMenuButton.classList.toggle('header__mobile-button_dark');
     this.mobileMenuButton.classList.toggle('header__mobile-button_light');
   }
 
-  // Управление открытием меню
   toggleMobileMenu() {
     this.mobileMenuContainer.classList.toggle('header__wrap_open');
     this.mobileMenuContainer.classList.toggle('header__wrap_close');
-  }
-
-  hideMobileMenuIcon() {
-    this.mobileMenuButton.style.display = 'none';
-  }
-
-  showMobileMenuIcon() {
-    if (this.color === 'dark') {
-      this.changeColor();
-    }
-    this.mobileMenuButton.style.display = 'block';
-    this.mobileMenuButton.classList.add('header__mobile-button_open');
-    this.mobileMenuButton.classList.remove('header__mobile-button_close');
   }
 
   blockPage() {
